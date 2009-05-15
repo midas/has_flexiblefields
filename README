@@ -1,13 +1,63 @@
 HasFlexibleFields
 =================
 
-Introduction goes here.
+The problem:
 
+How does one add fields to a model (usually another project's models) without permanently altering the model structure?
+What if the 'name' of the field was only known at runtime?
+
+This plugin attempts to answer the above questions.
+
+I rejected the idea of Entity-Attribute-Value
+I had a look at has_magic_columns but the field labels/aliases need to be defined in code
+
+Features:
+Extends ActiveRecord
+Uses a has_one association to a flexifields model
+The flexifields model is polymorphic, one table to hold all has_one records for any model extentended by this plugin
+Uses delegation to make some methods appear in the extended model.
+
+
+NOTE: currently this version requires rails v 2.3.2
 
 Example
 =======
 
-Example goes here.
+class Content < ActiveRecord::Base
+  has_flexiblefields
+end
+where Content has title and body fields
 
+Given a flexifield_def of say:
+  flexdef1:
+    id: 1
+    name: Recipe
+
+and flexifield_def_entries of:
+  ffd1e1:
+    flexifield_def_id: 1
+    flexifield_name: ffs_01
+    flexifield_alias: preparation time
+    ordering: 1
+
+  ffd1e2:
+    flexifield_def_id: 1
+    flexifield_name: ffs_02
+    flexifield_alias: cooking time
+    ordering: 2
+
+Then this saves the additional content with the main content...
+  r = Content.create! :title => 'Roast Pork Belly', :body => 'Ingredients: ...'
+  r.assign_ff_def 1
+  r.assign_ff_value 'preparation time', '25 minutes'
+  r.assign_ff_value 'cooking time', '2 hours 30 minutes'
+and
+  r.ff_aliases # -> ["preparation time","cooking time"]
+  r.ff_fields  # -> ["ffs_01","ffs_02"]
+and
+  r.to_ff_alias 'ffs_01'       # -> "preparation time"
+  r.to_ff_field 'cooking time' # -> "ffs_02"
+
+But forms that save to ffs_NN directly will also work.
 
 Copyright (c) 2009 Guy Boertje, released under the MIT license

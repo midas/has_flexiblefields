@@ -31,6 +31,21 @@ class HasFlexibleFieldsTest < ActiveSupport::TestCase
     post = get_post(true)
     assert_equal ['excerpt','references'], post.ff_aliases
   end
-
-
+  
+  def test_d_new_post_ff_fields
+    post = get_post(true)
+    assert_equal ['ffs_01','ffs_02'], post.ff_fields
+  end
+  
+  def test_c_new_post_to_ff_alias
+    post = get_post(true)
+    assert_equal 'excerpt', post.to_ff_alias('ffs_01')
+  end
+  
+  def test_d_new_post_to_ff_field
+    post = get_post(true)
+    assert_equal 'ffs_02', post.to_ff_field('references')
+  end
+  
+  
 end
