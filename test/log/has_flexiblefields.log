@@ -1,0 +1,964 @@
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "flexifield_def_entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer NOT NULL, "flexifield_name" varchar(255) NOT NULL, "flexifield_alias" varchar(255) NOT NULL, "ordering" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE UNIQUE INDEX "idx_ffonceperspecial" ON "flexifield_def_entries" ("flexifield_def_id", "flexifield_name")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "idx_ordering" ON "flexifield_def_entries" ("ordering")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "flexifield_defs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "flexifields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer, "flexifield_set_id" integer, "flexifield_set_type" varchar(255), "created_at" datetime, "updated_at" datetime, "ffs_01" varchar(255), "ffs_02" varchar(255), "ffs_03" varchar(255), "ffs_04" varchar(255), "ffs_05" varchar(255), "ffs_06" varchar(255), "ffs_07" varchar(255), "ffs_08" varchar(255), "ffs_09" varchar(255), "ffs_10" varchar(255), "ffs_11" varchar(255), "ffs_12" varchar(255), "ffs_13" varchar(255), "ffs_14" varchar(255), "ffs_15" varchar(255), "ffs_16" varchar(255)) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_flexifields_on_flexifield_def_id" ON "flexifields" ("flexifield_def_id")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_set_id" ON "flexifields" ("flexifield_set_id")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_flexifields_on_flexifield_set_type" ON "flexifields" ("flexifield_set_type")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "published" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 11:00:06', 'first title', 'first body', NULL, '2009-05-15 11:00:06')[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (20.9ms)[0m   [0;1mCREATE TABLE "flexifield_def_entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer NOT NULL, "flexifield_name" varchar(255) NOT NULL, "flexifield_alias" varchar(255) NOT NULL, "ordering" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (7.7ms)[0m   [0mCREATE UNIQUE INDEX "idx_ffonceperspecial" ON "flexifield_def_entries" ("flexifield_def_id", "flexifield_name")[0m
+  [4;36;1mSQL (7.6ms)[0m   [0;1mCREATE INDEX "idx_ordering" ON "flexifield_def_entries" ("ordering")[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (8.8ms)[0m   [0;1mCREATE TABLE "flexifield_defs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (11.2ms)[0m   [0;1mCREATE TABLE "flexifields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer, "flexifield_set_id" integer, "flexifield_set_type" varchar(255), "created_at" datetime, "updated_at" datetime, "ffs_01" varchar(255), "ffs_02" varchar(255), "ffs_03" varchar(255), "ffs_04" varchar(255), "ffs_05" varchar(255), "ffs_06" varchar(255), "ffs_07" varchar(255), "ffs_08" varchar(255), "ffs_09" varchar(255), "ffs_10" varchar(255), "ffs_11" varchar(255), "ffs_12" varchar(255), "ffs_13" varchar(255), "ffs_14" varchar(255), "ffs_15" varchar(255), "ffs_16" varchar(255)) [0m
+  [4;35;1mSQL (18.1ms)[0m   [0mCREATE INDEX "index_flexifields_on_flexifield_def_id" ON "flexifields" ("flexifield_def_id")[0m
+  [4;36;1mSQL (8.0ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_set_id" ON "flexifields" ("flexifield_set_id")[0m
+  [4;35;1mSQL (6.1ms)[0m   [0mCREATE INDEX "index_flexifields_on_flexifield_set_type" ON "flexifields" ("flexifield_set_type")[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (19.9ms)[0m   [0mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "published" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mPost Create (1.1ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 11:19:26', 'first title', 'first body', NULL, '2009-05-15 11:19:26')[0m
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mPost Create (0.5ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 11:37:05', 'first title', 'first body', NULL, '2009-05-15 11:37:05')[0m
+  [4;36;1mFlexifield Load (0.3ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifield Create (0.4ms)[0m   [0mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 11:37:05', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 11:37:05', NULL, NULL)[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mPost Create (0.5ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 11:40:29', 'first title', 'first body', NULL, '2009-05-15 11:40:29')[0m
+  [4;36;1mFlexifield Load (0.3ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifield Create (0.4ms)[0m   [0mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 11:40:29', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 11:40:29', NULL, NULL)[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mPost Create (0.5ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 11:44:47', 'first title', 'first body', NULL, '2009-05-15 11:44:47')[0m
+  [4;36;1mFlexifield Load (0.3ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifield Create (0.4ms)[0m   [0mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 11:44:47', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 11:44:47', NULL, NULL)[0m
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;35;1mFlexifield Load (0.8ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifield Update (0.5ms)[0m   [0;1mUPDATE "flexifields" SET "flexifield_def_id" = 1, "updated_at" = '2009-05-15 11:44:47' WHERE "id" = 1[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mPost Create (0.5ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 11:51:23', 'first title', 'first body', NULL, '2009-05-15 11:51:23')[0m
+  [4;36;1mFlexifield Load (0.3ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 2 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifield Create (0.5ms)[0m   [0mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 11:51:23', NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 11:51:23', NULL, NULL)[0m
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;35;1mFlexifield Load (0.9ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mSQL (3.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mPost Create (1.1ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 11:58:58', 'first title', 'first body', NULL, '2009-05-15 11:58:58')[0m
+  [4;36;1mFlexifield Load (0.7ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 3 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifield Create (1.0ms)[0m   [0mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 11:58:58', NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 11:58:58', NULL, NULL)[0m
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;35;1mFlexifield Load (0.8ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 3 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifield Update (0.5ms)[0m   [0;1mUPDATE "flexifields" SET "flexifield_def_id" = 1, "updated_at" = '2009-05-15 11:58:58' WHERE "id" = 3[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mPost Create (0.5ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 12:00:49', 'first title', 'first body', NULL, '2009-05-15 12:00:49')[0m
+  [4;36;1mFlexifield Load (0.3ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 4 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifield Create (0.4ms)[0m   [0mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 12:00:49', NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 12:00:49', NULL, NULL)[0m
+  [4;36;1mPost Load (0.8ms)[0m   [0;1mSELECT * FROM "posts" [0m
+  [4;35;1mFlexifield Load (0.8ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifield Destroy (0.5ms)[0m   [0;1mDELETE FROM "flexifields" WHERE "id" = 1[0m
+  [4;35;1mPost Destroy (0.2ms)[0m   [0mDELETE FROM "posts" WHERE "id" = 1[0m
+  [4;36;1mFlexifield Load (0.8ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 2 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifield Destroy (0.5ms)[0m   [0mDELETE FROM "flexifields" WHERE "id" = 2[0m
+  [4;36;1mPost Destroy (0.2ms)[0m   [0;1mDELETE FROM "posts" WHERE "id" = 2[0m
+  [4;35;1mFlexifield Load (0.8ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 3 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifield Destroy (0.5ms)[0m   [0;1mDELETE FROM "flexifields" WHERE "id" = 3[0m
+  [4;35;1mPost Destroy (0.2ms)[0m   [0mDELETE FROM "posts" WHERE "id" = 3[0m
+  [4;36;1mFlexifield Load (0.8ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 4 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifield Destroy (0.5ms)[0m   [0mDELETE FROM "flexifields" WHERE "id" = 4[0m
+  [4;36;1mPost Destroy (0.2ms)[0m   [0;1mDELETE FROM "posts" WHERE "id" = 4[0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" [0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mPost Create (1.1ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 12:03:05', 'first title', 'first body', NULL, '2009-05-15 12:03:05')[0m
+  [4;36;1mFlexifield Load (0.7ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 5 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifield Create (1.3ms)[0m   [0mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 12:03:05', NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 12:03:05', NULL, NULL)[0m
+  [4;36;1mPost Load (1.1ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;35;1mFlexifield Load (2.1ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 5 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifield Update (1.1ms)[0m   [0;1mUPDATE "flexifields" SET "flexifield_def_id" = 1, "updated_at" = '2009-05-15 12:03:05' WHERE "id" = 5[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE TABLE "flexifield_def_entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer NOT NULL, "flexifield_name" varchar(255) NOT NULL, "flexifield_alias" varchar(255) NOT NULL, "ordering" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE UNIQUE INDEX "idx_ffonceperspecial" ON "flexifield_def_entries" ("flexifield_def_id", "flexifield_name")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "idx_ordering" ON "flexifield_def_entries" ("ordering")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE TABLE "flexifield_defs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer, "flexifield_set_id" integer, "flexifield_set_type" varchar(255), "created_at" datetime, "updated_at" datetime, "ffs_01" varchar(255), "ffs_02" varchar(255), "ffs_03" varchar(255), "ffs_04" varchar(255), "ffs_05" varchar(255), "ffs_06" varchar(255), "ffs_07" varchar(255), "ffs_08" varchar(255), "ffs_09" varchar(255), "ffs_10" varchar(255), "ffs_11" varchar(255), "ffs_12" varchar(255), "ffs_13" varchar(255), "ffs_14" varchar(255), "ffs_15" varchar(255), "ffs_16" varchar(255)) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_def_id" ON "flexifields" ("flexifield_def_id")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE INDEX "index_flexifields_on_flexifield_set_id" ON "flexifields" ("flexifield_set_id")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_set_type" ON "flexifields" ("flexifield_set_type")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "published" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 12:04:45', 'first title', 'first body', NULL, '2009-05-15 12:04:45')[0m
+  [4;36;1mFlexifield Load (0.3ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifield Create (0.2ms)[0m   [0mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 12:04:45', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 12:04:45', NULL, NULL)[0m
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;35;1mFlexifield Load (0.8ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifield Update (0.2ms)[0m   [0;1mUPDATE "flexifields" SET "flexifield_def_id" = 1, "updated_at" = '2009-05-15 12:04:45' WHERE "id" = 1[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifield_def_entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer NOT NULL, "flexifield_name" varchar(255) NOT NULL, "flexifield_alias" varchar(255) NOT NULL, "ordering" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE UNIQUE INDEX "idx_ffonceperspecial" ON "flexifield_def_entries" ("flexifield_def_id", "flexifield_name")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "idx_ordering" ON "flexifield_def_entries" ("ordering")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE TABLE "flexifield_defs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer, "flexifield_set_id" integer, "flexifield_set_type" varchar(255), "created_at" datetime, "updated_at" datetime, "ffs_01" varchar(255), "ffs_02" varchar(255), "ffs_03" varchar(255), "ffs_04" varchar(255), "ffs_05" varchar(255), "ffs_06" varchar(255), "ffs_07" varchar(255), "ffs_08" varchar(255), "ffs_09" varchar(255), "ffs_10" varchar(255), "ffs_11" varchar(255), "ffs_12" varchar(255), "ffs_13" varchar(255), "ffs_14" varchar(255), "ffs_15" varchar(255), "ffs_16" varchar(255)) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_def_id" ON "flexifields" ("flexifield_def_id")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_flexifields_on_flexifield_set_id" ON "flexifields" ("flexifield_set_id")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_set_type" ON "flexifields" ("flexifield_set_type")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "published" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 12:09:11', 'first title', 'first body', NULL, '2009-05-15 12:09:11')[0m
+  [4;36;1mFlexifield Load (0.3ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifield Create (0.2ms)[0m   [0mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 12:09:11', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 12:09:11', NULL, NULL)[0m
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;35;1mFlexifield Load (0.8ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifield Update (0.2ms)[0m   [0;1mUPDATE "flexifields" SET "flexifield_def_id" = 1, "updated_at" = '2009-05-15 12:09:11' WHERE "id" = 1[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifield_def_entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer NOT NULL, "flexifield_name" varchar(255) NOT NULL, "flexifield_alias" varchar(255) NOT NULL, "ordering" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE UNIQUE INDEX "idx_ffonceperspecial" ON "flexifield_def_entries" ("flexifield_def_id", "flexifield_name")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "idx_ordering" ON "flexifield_def_entries" ("ordering")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE TABLE "flexifield_defs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer, "flexifield_set_id" integer, "flexifield_set_type" varchar(255), "created_at" datetime, "updated_at" datetime, "ffs_01" varchar(255), "ffs_02" varchar(255), "ffs_03" varchar(255), "ffs_04" varchar(255), "ffs_05" varchar(255), "ffs_06" varchar(255), "ffs_07" varchar(255), "ffs_08" varchar(255), "ffs_09" varchar(255), "ffs_10" varchar(255), "ffs_11" varchar(255), "ffs_12" varchar(255), "ffs_13" varchar(255), "ffs_14" varchar(255), "ffs_15" varchar(255), "ffs_16" varchar(255)) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_def_id" ON "flexifields" ("flexifield_def_id")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_flexifields_on_flexifield_set_id" ON "flexifields" ("flexifield_set_id")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_set_type" ON "flexifields" ("flexifield_set_type")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "published" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 12:09:23', 'first title', 'first body', NULL, '2009-05-15 12:09:23')[0m
+  [4;35;1mFlexifield Load (0.3ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifield Create (0.2ms)[0m   [0;1mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 12:09:23', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 12:09:23', NULL, NULL)[0m
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;36;1mFlexifield Load (0.7ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifield Update (0.2ms)[0m   [0mUPDATE "flexifields" SET "flexifield_def_id" = 1, "updated_at" = '2009-05-15 12:09:23' WHERE "id" = 1[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCREATE TABLE "flexifield_def_entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer NOT NULL, "flexifield_name" varchar(255) NOT NULL, "flexifield_alias" varchar(255) NOT NULL, "ordering" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE UNIQUE INDEX "idx_ffonceperspecial" ON "flexifield_def_entries" ("flexifield_def_id", "flexifield_name")[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE INDEX "idx_ordering" ON "flexifield_def_entries" ("ordering")[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCREATE TABLE "flexifield_defs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCREATE TABLE "flexifields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer, "flexifield_set_id" integer, "flexifield_set_type" varchar(255), "created_at" datetime, "updated_at" datetime, "ffs_01" varchar(255), "ffs_02" varchar(255), "ffs_03" varchar(255), "ffs_04" varchar(255), "ffs_05" varchar(255), "ffs_06" varchar(255), "ffs_07" varchar(255), "ffs_08" varchar(255), "ffs_09" varchar(255), "ffs_10" varchar(255), "ffs_11" varchar(255), "ffs_12" varchar(255), "ffs_13" varchar(255), "ffs_14" varchar(255), "ffs_15" varchar(255), "ffs_16" varchar(255)) [0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_def_id" ON "flexifields" ("flexifield_def_id")[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE INDEX "index_flexifields_on_flexifield_set_id" ON "flexifields" ("flexifield_set_id")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_set_type" ON "flexifields" ("flexifield_set_type")[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "published" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 12:11:07', 'first title', 'first body', NULL, '2009-05-15 12:11:07')[0m
+  [4;36;1mFlexifield Load (0.3ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifield Create (0.2ms)[0m   [0mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 12:11:07', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 12:11:07', NULL, NULL)[0m
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;35;1mFlexifield Load (0.8ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifield Update (0.2ms)[0m   [0;1mUPDATE "flexifields" SET "flexifield_def_id" = 1, "updated_at" = '2009-05-15 12:11:07' WHERE "id" = 1[0m
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;36;1mFlexifield Load (0.8ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifieldDef Load (0.2ms)[0m   [0mSELECT * FROM "flexifield_defs" WHERE ("flexifield_defs"."id" = 1) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifield_def_entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer NOT NULL, "flexifield_name" varchar(255) NOT NULL, "flexifield_alias" varchar(255) NOT NULL, "ordering" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE UNIQUE INDEX "idx_ffonceperspecial" ON "flexifield_def_entries" ("flexifield_def_id", "flexifield_name")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "idx_ordering" ON "flexifield_def_entries" ("ordering")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE TABLE "flexifield_defs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer, "flexifield_set_id" integer, "flexifield_set_type" varchar(255), "created_at" datetime, "updated_at" datetime, "ffs_01" varchar(255), "ffs_02" varchar(255), "ffs_03" varchar(255), "ffs_04" varchar(255), "ffs_05" varchar(255), "ffs_06" varchar(255), "ffs_07" varchar(255), "ffs_08" varchar(255), "ffs_09" varchar(255), "ffs_10" varchar(255), "ffs_11" varchar(255), "ffs_12" varchar(255), "ffs_13" varchar(255), "ffs_14" varchar(255), "ffs_15" varchar(255), "ffs_16" varchar(255)) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_def_id" ON "flexifields" ("flexifield_def_id")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_flexifields_on_flexifield_set_id" ON "flexifields" ("flexifield_set_id")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_set_type" ON "flexifields" ("flexifield_set_type")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "published" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 12:13:12', 'first title', 'first body', NULL, '2009-05-15 12:13:12')[0m
+  [4;36;1mFlexifield Load (0.3ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifield Create (0.2ms)[0m   [0mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 12:13:12', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 12:13:12', NULL, NULL)[0m
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;35;1mFlexifield Load (0.8ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifield Update (0.2ms)[0m   [0;1mUPDATE "flexifields" SET "flexifield_def_id" = 1, "updated_at" = '2009-05-15 12:13:12' WHERE "id" = 1[0m
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;36;1mFlexifield Load (0.8ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifieldDef Load (0.2ms)[0m   [0mSELECT * FROM "flexifield_defs" WHERE ("flexifield_defs"."id" = 1) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifield_def_entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer NOT NULL, "flexifield_name" varchar(255) NOT NULL, "flexifield_alias" varchar(255) NOT NULL, "ordering" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE UNIQUE INDEX "idx_ffonceperspecial" ON "flexifield_def_entries" ("flexifield_def_id", "flexifield_name")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "idx_ordering" ON "flexifield_def_entries" ("ordering")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE TABLE "flexifield_defs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer, "flexifield_set_id" integer, "flexifield_set_type" varchar(255), "created_at" datetime, "updated_at" datetime, "ffs_01" varchar(255), "ffs_02" varchar(255), "ffs_03" varchar(255), "ffs_04" varchar(255), "ffs_05" varchar(255), "ffs_06" varchar(255), "ffs_07" varchar(255), "ffs_08" varchar(255), "ffs_09" varchar(255), "ffs_10" varchar(255), "ffs_11" varchar(255), "ffs_12" varchar(255), "ffs_13" varchar(255), "ffs_14" varchar(255), "ffs_15" varchar(255), "ffs_16" varchar(255)) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_def_id" ON "flexifields" ("flexifield_def_id")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_flexifields_on_flexifield_set_id" ON "flexifields" ("flexifield_set_id")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_set_type" ON "flexifields" ("flexifield_set_type")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "published" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 12:14:14', 'first title', 'first body', NULL, '2009-05-15 12:14:14')[0m
+  [4;36;1mFlexifield Load (0.3ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifield Create (0.2ms)[0m   [0mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 12:14:14', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 12:14:14', NULL, NULL)[0m
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;35;1mFlexifield Load (0.7ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifield Update (0.2ms)[0m   [0;1mUPDATE "flexifields" SET "flexifield_def_id" = 1, "updated_at" = '2009-05-15 12:14:14' WHERE "id" = 1[0m
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;36;1mFlexifield Load (0.8ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifieldDef Load (0.2ms)[0m   [0mSELECT * FROM "flexifield_defs" WHERE ("flexifield_defs"."id" = 1) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifield_def_entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer NOT NULL, "flexifield_name" varchar(255) NOT NULL, "flexifield_alias" varchar(255) NOT NULL, "ordering" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE UNIQUE INDEX "idx_ffonceperspecial" ON "flexifield_def_entries" ("flexifield_def_id", "flexifield_name")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "idx_ordering" ON "flexifield_def_entries" ("ordering")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE TABLE "flexifield_defs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer, "flexifield_set_id" integer, "flexifield_set_type" varchar(255), "created_at" datetime, "updated_at" datetime, "ffs_01" varchar(255), "ffs_02" varchar(255), "ffs_03" varchar(255), "ffs_04" varchar(255), "ffs_05" varchar(255), "ffs_06" varchar(255), "ffs_07" varchar(255), "ffs_08" varchar(255), "ffs_09" varchar(255), "ffs_10" varchar(255), "ffs_11" varchar(255), "ffs_12" varchar(255), "ffs_13" varchar(255), "ffs_14" varchar(255), "ffs_15" varchar(255), "ffs_16" varchar(255)) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_def_id" ON "flexifields" ("flexifield_def_id")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_flexifields_on_flexifield_set_id" ON "flexifields" ("flexifield_set_id")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_set_type" ON "flexifields" ("flexifield_set_type")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "published" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 12:15:16', 'first title', 'first body', NULL, '2009-05-15 12:15:16')[0m
+  [4;36;1mFlexifield Load (0.3ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifield Create (0.2ms)[0m   [0mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 12:15:16', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 12:15:16', NULL, NULL)[0m
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;35;1mFlexifield Load (0.8ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifield Update (0.2ms)[0m   [0;1mUPDATE "flexifields" SET "flexifield_def_id" = 1, "updated_at" = '2009-05-15 12:15:16' WHERE "id" = 1[0m
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;36;1mFlexifield Load (0.8ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifieldDef Load (0.2ms)[0m   [0mSELECT * FROM "flexifield_defs" WHERE ("flexifield_defs"."id" = 1) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifield_def_entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer NOT NULL, "flexifield_name" varchar(255) NOT NULL, "flexifield_alias" varchar(255) NOT NULL, "ordering" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE UNIQUE INDEX "idx_ffonceperspecial" ON "flexifield_def_entries" ("flexifield_def_id", "flexifield_name")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "idx_ordering" ON "flexifield_def_entries" ("ordering")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE TABLE "flexifield_defs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer, "flexifield_set_id" integer, "flexifield_set_type" varchar(255), "created_at" datetime, "updated_at" datetime, "ffs_01" varchar(255), "ffs_02" varchar(255), "ffs_03" varchar(255), "ffs_04" varchar(255), "ffs_05" varchar(255), "ffs_06" varchar(255), "ffs_07" varchar(255), "ffs_08" varchar(255), "ffs_09" varchar(255), "ffs_10" varchar(255), "ffs_11" varchar(255), "ffs_12" varchar(255), "ffs_13" varchar(255), "ffs_14" varchar(255), "ffs_15" varchar(255), "ffs_16" varchar(255)) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_def_id" ON "flexifields" ("flexifield_def_id")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE INDEX "index_flexifields_on_flexifield_set_id" ON "flexifields" ("flexifield_set_id")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_set_type" ON "flexifields" ("flexifield_set_type")[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "published" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 12:25:35', 'first title', 'first body', NULL, '2009-05-15 12:25:35')[0m
+  [4;36;1mFlexifield Load (0.3ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifield Create (0.3ms)[0m   [0mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 12:25:35', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 12:25:35', NULL, NULL)[0m
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" LIMIT 1[0m
+  [4;35;1mFlexifield Load (0.8ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifield Update (0.2ms)[0m   [0;1mUPDATE "flexifields" SET "flexifield_def_id" = 1, "updated_at" = '2009-05-15 12:25:35' WHERE "id" = 1[0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" LIMIT 1[0m
+  [4;36;1mFlexifield Load (0.9ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifieldDef Load (0.2ms)[0m   [0mSELECT * FROM "flexifield_defs" WHERE ("flexifield_defs"."id" = 1) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifield_def_entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer NOT NULL, "flexifield_name" varchar(255) NOT NULL, "flexifield_alias" varchar(255) NOT NULL, "ordering" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE UNIQUE INDEX "idx_ffonceperspecial" ON "flexifield_def_entries" ("flexifield_def_id", "flexifield_name")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "idx_ordering" ON "flexifield_def_entries" ("ordering")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE TABLE "flexifield_defs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer, "flexifield_set_id" integer, "flexifield_set_type" varchar(255), "created_at" datetime, "updated_at" datetime, "ffs_01" varchar(255), "ffs_02" varchar(255), "ffs_03" varchar(255), "ffs_04" varchar(255), "ffs_05" varchar(255), "ffs_06" varchar(255), "ffs_07" varchar(255), "ffs_08" varchar(255), "ffs_09" varchar(255), "ffs_10" varchar(255), "ffs_11" varchar(255), "ffs_12" varchar(255), "ffs_13" varchar(255), "ffs_14" varchar(255), "ffs_15" varchar(255), "ffs_16" varchar(255)) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_def_id" ON "flexifields" ("flexifield_def_id")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_flexifields_on_flexifield_set_id" ON "flexifields" ("flexifield_set_id")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_set_type" ON "flexifields" ("flexifield_set_type")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "published" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 12:30:55', 'first title', 'first body', NULL, '2009-05-15 12:30:55')[0m
+  [4;36;1mFlexifield Load (1.4ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifield Create (0.2ms)[0m   [0mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 12:30:55', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 12:30:55', NULL, NULL)[0m
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;35;1mFlexifield Load (0.8ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifieldDef Load (0.2ms)[0m   [0;1mSELECT * FROM "flexifield_defs" WHERE ("flexifield_defs"."id" = 1) [0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;36;1mFlexifield Load (0.8ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mPost Create (0.5ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 12:32:32', 'first title', 'first body', NULL, '2009-05-15 12:32:32')[0m
+  [4;36;1mFlexifield Load (0.3ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 6 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifield Create (0.4ms)[0m   [0mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 12:32:32', NULL, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 12:32:32', NULL, NULL)[0m
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;35;1mFlexifield Load (0.8ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 6 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifieldDef Load (0.2ms)[0m   [0;1mSELECT * FROM "flexifield_defs" WHERE ("flexifield_defs"."id" = 1) [0m
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;36;1mFlexifield Load (0.8ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 6 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifield_def_entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer NOT NULL, "flexifield_name" varchar(255) NOT NULL, "flexifield_alias" varchar(255) NOT NULL, "ordering" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE UNIQUE INDEX "idx_ffonceperspecial" ON "flexifield_def_entries" ("flexifield_def_id", "flexifield_name")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "idx_ordering" ON "flexifield_def_entries" ("ordering")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE TABLE "flexifield_defs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer, "flexifield_set_id" integer, "flexifield_set_type" varchar(255), "created_at" datetime, "updated_at" datetime, "ffs_01" varchar(255), "ffs_02" varchar(255), "ffs_03" varchar(255), "ffs_04" varchar(255), "ffs_05" varchar(255), "ffs_06" varchar(255), "ffs_07" varchar(255), "ffs_08" varchar(255), "ffs_09" varchar(255), "ffs_10" varchar(255), "ffs_11" varchar(255), "ffs_12" varchar(255), "ffs_13" varchar(255), "ffs_14" varchar(255), "ffs_15" varchar(255), "ffs_16" varchar(255)) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_def_id" ON "flexifields" ("flexifield_def_id")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_flexifields_on_flexifield_set_id" ON "flexifields" ("flexifield_set_id")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_set_type" ON "flexifields" ("flexifield_set_type")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "published" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 12:35:43', 'first title', 'first body', NULL, '2009-05-15 12:35:43')[0m
+  [4;36;1mFlexifield Load (0.3ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifield Create (0.2ms)[0m   [0mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 12:35:43', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 12:35:43', NULL, NULL)[0m
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;35;1mFlexifield Load (0.7ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifieldDef Load (0.3ms)[0m   [0;1mSELECT * FROM "flexifield_defs" LIMIT 1[0m
+  [4;35;1mFlexifield Update (0.2ms)[0m   [0mUPDATE "flexifields" SET "flexifield_def_id" = 175577340, "updated_at" = '2009-05-15 12:35:43' WHERE "id" = 1[0m
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;35;1mFlexifield Load (0.8ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifieldDef Load (0.4ms)[0m   [0;1mSELECT * FROM "flexifield_defs" WHERE ("flexifield_defs"."id" = 175577340) [0m
+  [4;35;1mFlexifieldDefEntry Load (0.3ms)[0m   [0mSELECT "flexifield_def_entries".* FROM "flexifield_def_entries" WHERE ("flexifield_def_entries".flexifield_def_id = 175577340) ORDER BY ordering[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifield_def_entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer NOT NULL, "flexifield_name" varchar(255) NOT NULL, "flexifield_alias" varchar(255) NOT NULL, "ordering" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE UNIQUE INDEX "idx_ffonceperspecial" ON "flexifield_def_entries" ("flexifield_def_id", "flexifield_name")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "idx_ordering" ON "flexifield_def_entries" ("ordering")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE TABLE "flexifield_defs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer, "flexifield_set_id" integer, "flexifield_set_type" varchar(255), "created_at" datetime, "updated_at" datetime, "ffs_01" varchar(255), "ffs_02" varchar(255), "ffs_03" varchar(255), "ffs_04" varchar(255), "ffs_05" varchar(255), "ffs_06" varchar(255), "ffs_07" varchar(255), "ffs_08" varchar(255), "ffs_09" varchar(255), "ffs_10" varchar(255), "ffs_11" varchar(255), "ffs_12" varchar(255), "ffs_13" varchar(255), "ffs_14" varchar(255), "ffs_15" varchar(255), "ffs_16" varchar(255)) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_def_id" ON "flexifields" ("flexifield_def_id")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_flexifields_on_flexifield_set_id" ON "flexifields" ("flexifield_set_id")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_set_type" ON "flexifields" ("flexifield_set_type")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "published" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifield_def_entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer NOT NULL, "flexifield_name" varchar(255) NOT NULL, "flexifield_alias" varchar(255) NOT NULL, "ordering" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE UNIQUE INDEX "idx_ffonceperspecial" ON "flexifield_def_entries" ("flexifield_def_id", "flexifield_name")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "idx_ordering" ON "flexifield_def_entries" ("ordering")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE TABLE "flexifield_defs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer, "flexifield_set_id" integer, "flexifield_set_type" varchar(255), "created_at" datetime, "updated_at" datetime, "ffs_01" varchar(255), "ffs_02" varchar(255), "ffs_03" varchar(255), "ffs_04" varchar(255), "ffs_05" varchar(255), "ffs_06" varchar(255), "ffs_07" varchar(255), "ffs_08" varchar(255), "ffs_09" varchar(255), "ffs_10" varchar(255), "ffs_11" varchar(255), "ffs_12" varchar(255), "ffs_13" varchar(255), "ffs_14" varchar(255), "ffs_15" varchar(255), "ffs_16" varchar(255)) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_def_id" ON "flexifields" ("flexifield_def_id")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_flexifields_on_flexifield_set_id" ON "flexifields" ("flexifield_set_id")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_set_type" ON "flexifields" ("flexifield_set_type")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "published" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 12:39:39', 'first title', 'first body', NULL, '2009-05-15 12:39:39')[0m
+  [4;36;1mFlexifield Load (0.3ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifield Create (0.2ms)[0m   [0mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 12:39:39', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 12:39:39', NULL, NULL)[0m
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;35;1mFlexifield Load (0.7ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifieldDef Load (0.3ms)[0m   [0;1mSELECT * FROM "flexifield_defs" LIMIT 1[0m
+  [4;35;1mFlexifield Update (0.2ms)[0m   [0mUPDATE "flexifields" SET "flexifield_def_id" = 1, "updated_at" = '2009-05-15 12:39:39' WHERE "id" = 1[0m
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;35;1mFlexifield Load (0.8ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifieldDef Load (0.4ms)[0m   [0;1mSELECT * FROM "flexifield_defs" WHERE ("flexifield_defs"."id" = 1) [0m
+  [4;35;1mFlexifieldDefEntry Load (0.7ms)[0m   [0mSELECT "flexifield_def_entries".* FROM "flexifield_def_entries" WHERE ("flexifield_def_entries".flexifield_def_id = 1) ORDER BY ordering[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifield_def_entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer NOT NULL, "flexifield_name" varchar(255) NOT NULL, "flexifield_alias" varchar(255) NOT NULL, "ordering" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE UNIQUE INDEX "idx_ffonceperspecial" ON "flexifield_def_entries" ("flexifield_def_id", "flexifield_name")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "idx_ordering" ON "flexifield_def_entries" ("ordering")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE TABLE "flexifield_defs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer, "flexifield_set_id" integer, "flexifield_set_type" varchar(255), "created_at" datetime, "updated_at" datetime, "ffs_01" varchar(255), "ffs_02" varchar(255), "ffs_03" varchar(255), "ffs_04" varchar(255), "ffs_05" varchar(255), "ffs_06" varchar(255), "ffs_07" varchar(255), "ffs_08" varchar(255), "ffs_09" varchar(255), "ffs_10" varchar(255), "ffs_11" varchar(255), "ffs_12" varchar(255), "ffs_13" varchar(255), "ffs_14" varchar(255), "ffs_15" varchar(255), "ffs_16" varchar(255)) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_def_id" ON "flexifields" ("flexifield_def_id")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_flexifields_on_flexifield_set_id" ON "flexifields" ("flexifield_set_id")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_set_type" ON "flexifields" ("flexifield_set_type")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "published" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 12:59:03', 'first title', 'first body', NULL, '2009-05-15 12:59:03')[0m
+  [4;35;1mFlexifield Load (0.3ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifield Create (0.3ms)[0m   [0;1mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 12:59:03', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 12:59:03', NULL, NULL)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;35;1mFlexifield Load (0.7ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifieldDef Load (0.3ms)[0m   [0;1mSELECT * FROM "flexifield_defs" LIMIT 1[0m
+  [4;35;1mFlexifield Update (0.2ms)[0m   [0mUPDATE "flexifields" SET "flexifield_def_id" = 1, "updated_at" = '2009-05-15 12:59:03' WHERE "id" = 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;36;1mFlexifield Load (0.8ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifieldDef Load (0.4ms)[0m   [0mSELECT * FROM "flexifield_defs" WHERE ("flexifield_defs"."id" = 1) [0m
+  [4;36;1mFlexifieldDefEntry Load (0.7ms)[0m   [0;1mSELECT "flexifield_def_entries".* FROM "flexifield_def_entries" WHERE ("flexifield_def_entries".flexifield_def_id = 1) ORDER BY ordering[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE TABLE "flexifield_def_entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer NOT NULL, "flexifield_name" varchar(255) NOT NULL, "flexifield_alias" varchar(255) NOT NULL, "ordering" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE UNIQUE INDEX "idx_ffonceperspecial" ON "flexifield_def_entries" ("flexifield_def_id", "flexifield_name")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "idx_ordering" ON "flexifield_def_entries" ("ordering")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE TABLE "flexifield_defs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer, "flexifield_set_id" integer, "flexifield_set_type" varchar(255), "created_at" datetime, "updated_at" datetime, "ffs_01" varchar(255), "ffs_02" varchar(255), "ffs_03" varchar(255), "ffs_04" varchar(255), "ffs_05" varchar(255), "ffs_06" varchar(255), "ffs_07" varchar(255), "ffs_08" varchar(255), "ffs_09" varchar(255), "ffs_10" varchar(255), "ffs_11" varchar(255), "ffs_12" varchar(255), "ffs_13" varchar(255), "ffs_14" varchar(255), "ffs_15" varchar(255), "ffs_16" varchar(255)) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_def_id" ON "flexifields" ("flexifield_def_id")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_flexifields_on_flexifield_set_id" ON "flexifields" ("flexifield_set_id")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_set_type" ON "flexifields" ("flexifield_set_type")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "published" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 13:10:58', 'title1', 'body1', NULL, '2009-05-15 13:10:58')[0m
+  [4;35;1mFlexifield Load (0.3ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifield Create (0.2ms)[0m   [0;1mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 13:10:58', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 13:10:58', NULL, NULL)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 13:10:58', 'title1', 'body1', NULL, '2009-05-15 13:10:58')[0m
+  [4;35;1mFlexifield Load (0.2ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifield Create (0.2ms)[0m   [0;1mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 13:10:58', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 13:10:58', NULL, NULL)[0m
+  [4;35;1mFlexifieldDef Load (0.4ms)[0m   [0mSELECT * FROM "flexifield_defs" LIMIT 1[0m
+  [4;36;1mFlexifield Update (0.2ms)[0m   [0;1mUPDATE "flexifields" SET "flexifield_def_id" = 1, "updated_at" = '2009-05-15 13:10:58' WHERE "id" = 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 13:10:58', 'title1', 'body1', NULL, '2009-05-15 13:10:58')[0m
+  [4;35;1mFlexifield Load (0.2ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifield Create (0.2ms)[0m   [0;1mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 13:10:58', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 13:10:58', NULL, NULL)[0m
+  [4;35;1mFlexifieldDef Load (0.3ms)[0m   [0mSELECT * FROM "flexifield_defs" LIMIT 1[0m
+  [4;36;1mFlexifield Update (0.2ms)[0m   [0;1mUPDATE "flexifields" SET "flexifield_def_id" = 1, "updated_at" = '2009-05-15 13:10:58' WHERE "id" = 1[0m
+  [4;35;1mFlexifieldDef Load (0.4ms)[0m   [0mSELECT * FROM "flexifield_defs" WHERE ("flexifield_defs"."id" = 1) [0m
+  [4;36;1mFlexifieldDefEntry Load (1.7ms)[0m   [0;1mSELECT "flexifield_def_entries".* FROM "flexifield_def_entries" WHERE ("flexifield_def_entries".flexifield_def_id = 1) ORDER BY ordering[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifield_def_entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer NOT NULL, "flexifield_name" varchar(255) NOT NULL, "flexifield_alias" varchar(255) NOT NULL, "ordering" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE UNIQUE INDEX "idx_ffonceperspecial" ON "flexifield_def_entries" ("flexifield_def_id", "flexifield_name")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "idx_ordering" ON "flexifield_def_entries" ("ordering")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE TABLE "flexifield_defs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer, "flexifield_set_id" integer, "flexifield_set_type" varchar(255), "created_at" datetime, "updated_at" datetime, "ffs_01" varchar(255), "ffs_02" varchar(255), "ffs_03" varchar(255), "ffs_04" varchar(255), "ffs_05" varchar(255), "ffs_06" varchar(255), "ffs_07" varchar(255), "ffs_08" varchar(255), "ffs_09" varchar(255), "ffs_10" varchar(255), "ffs_11" varchar(255), "ffs_12" varchar(255), "ffs_13" varchar(255), "ffs_14" varchar(255), "ffs_15" varchar(255), "ffs_16" varchar(255)) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_def_id" ON "flexifields" ("flexifield_def_id")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_flexifields_on_flexifield_set_id" ON "flexifields" ("flexifield_set_id")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_set_type" ON "flexifields" ("flexifield_set_type")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "published" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 13:11:15', 'title1', 'body1', NULL, '2009-05-15 13:11:15')[0m
+  [4;35;1mFlexifield Load (0.3ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifield Create (0.3ms)[0m   [0;1mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 13:11:15', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 13:11:15', NULL, NULL)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 13:11:15', 'title1', 'body1', NULL, '2009-05-15 13:11:15')[0m
+  [4;35;1mFlexifield Load (0.2ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifield Create (0.2ms)[0m   [0;1mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 13:11:15', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 13:11:15', NULL, NULL)[0m
+  [4;35;1mFlexifieldDef Load (0.4ms)[0m   [0mSELECT * FROM "flexifield_defs" LIMIT 1[0m
+  [4;36;1mFlexifield Update (0.2ms)[0m   [0;1mUPDATE "flexifields" SET "flexifield_def_id" = 1, "updated_at" = '2009-05-15 13:11:15' WHERE "id" = 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 13:11:15', 'title1', 'body1', NULL, '2009-05-15 13:11:15')[0m
+  [4;35;1mFlexifield Load (0.2ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifield Create (0.2ms)[0m   [0;1mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 13:11:15', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 13:11:15', NULL, NULL)[0m
+  [4;35;1mFlexifieldDef Load (0.4ms)[0m   [0mSELECT * FROM "flexifield_defs" LIMIT 1[0m
+  [4;36;1mFlexifield Update (0.2ms)[0m   [0;1mUPDATE "flexifields" SET "flexifield_def_id" = 1, "updated_at" = '2009-05-15 13:11:15' WHERE "id" = 1[0m
+  [4;35;1mFlexifieldDef Load (0.3ms)[0m   [0mSELECT * FROM "flexifield_defs" WHERE ("flexifield_defs"."id" = 1) [0m
+  [4;36;1mFlexifieldDefEntry Load (0.7ms)[0m   [0;1mSELECT "flexifield_def_entries".* FROM "flexifield_def_entries" WHERE ("flexifield_def_entries".flexifield_def_id = 1) ORDER BY ordering[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifield_def_entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer NOT NULL, "flexifield_name" varchar(255) NOT NULL, "flexifield_alias" varchar(255) NOT NULL, "ordering" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE UNIQUE INDEX "idx_ffonceperspecial" ON "flexifield_def_entries" ("flexifield_def_id", "flexifield_name")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "idx_ordering" ON "flexifield_def_entries" ("ordering")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE TABLE "flexifield_defs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer, "flexifield_set_id" integer, "flexifield_set_type" varchar(255), "created_at" datetime, "updated_at" datetime, "ffs_01" varchar(255), "ffs_02" varchar(255), "ffs_03" varchar(255), "ffs_04" varchar(255), "ffs_05" varchar(255), "ffs_06" varchar(255), "ffs_07" varchar(255), "ffs_08" varchar(255), "ffs_09" varchar(255), "ffs_10" varchar(255), "ffs_11" varchar(255), "ffs_12" varchar(255), "ffs_13" varchar(255), "ffs_14" varchar(255), "ffs_15" varchar(255), "ffs_16" varchar(255)) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_def_id" ON "flexifields" ("flexifield_def_id")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_flexifields_on_flexifield_set_id" ON "flexifields" ("flexifield_set_id")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_set_type" ON "flexifields" ("flexifield_set_type")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "published" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 13:11:22', 'title1', 'body1', NULL, '2009-05-15 13:11:22')[0m
+  [4;35;1mFlexifield Load (0.3ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifield Create (0.2ms)[0m   [0;1mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 13:11:22', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 13:11:22', NULL, NULL)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 13:11:22', 'title1', 'body1', NULL, '2009-05-15 13:11:22')[0m
+  [4;35;1mFlexifield Load (0.2ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifield Create (0.2ms)[0m   [0;1mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 13:11:22', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 13:11:22', NULL, NULL)[0m
+  [4;35;1mFlexifieldDef Load (0.4ms)[0m   [0mSELECT * FROM "flexifield_defs" LIMIT 1[0m
+  [4;36;1mFlexifield Update (0.2ms)[0m   [0;1mUPDATE "flexifields" SET "flexifield_def_id" = 1, "updated_at" = '2009-05-15 13:11:22' WHERE "id" = 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 13:11:22', 'title1', 'body1', NULL, '2009-05-15 13:11:22')[0m
+  [4;35;1mFlexifield Load (0.2ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifield Create (0.2ms)[0m   [0;1mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 13:11:22', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 13:11:22', NULL, NULL)[0m
+  [4;35;1mFlexifieldDef Load (0.4ms)[0m   [0mSELECT * FROM "flexifield_defs" LIMIT 1[0m
+  [4;36;1mFlexifield Update (0.2ms)[0m   [0;1mUPDATE "flexifields" SET "flexifield_def_id" = 1, "updated_at" = '2009-05-15 13:11:22' WHERE "id" = 1[0m
+  [4;35;1mFlexifieldDef Load (0.4ms)[0m   [0mSELECT * FROM "flexifield_defs" WHERE ("flexifield_defs"."id" = 1) [0m
+  [4;36;1mFlexifieldDefEntry Load (0.7ms)[0m   [0;1mSELECT "flexifield_def_entries".* FROM "flexifield_def_entries" WHERE ("flexifield_def_entries".flexifield_def_id = 1) ORDER BY ordering[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifield_def_entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer NOT NULL, "flexifield_name" varchar(255) NOT NULL, "flexifield_alias" varchar(255) NOT NULL, "ordering" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE UNIQUE INDEX "idx_ffonceperspecial" ON "flexifield_def_entries" ("flexifield_def_id", "flexifield_name")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "idx_ordering" ON "flexifield_def_entries" ("ordering")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE TABLE "flexifield_defs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer, "flexifield_set_id" integer, "flexifield_set_type" varchar(255), "created_at" datetime, "updated_at" datetime, "ffs_01" varchar(255), "ffs_02" varchar(255), "ffs_03" varchar(255), "ffs_04" varchar(255), "ffs_05" varchar(255), "ffs_06" varchar(255), "ffs_07" varchar(255), "ffs_08" varchar(255), "ffs_09" varchar(255), "ffs_10" varchar(255), "ffs_11" varchar(255), "ffs_12" varchar(255), "ffs_13" varchar(255), "ffs_14" varchar(255), "ffs_15" varchar(255), "ffs_16" varchar(255)) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_def_id" ON "flexifields" ("flexifield_def_id")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_flexifields_on_flexifield_set_id" ON "flexifields" ("flexifield_set_id")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_set_type" ON "flexifields" ("flexifield_set_type")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "published" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 13:11:39', 'title1', 'body1', NULL, '2009-05-15 13:11:39')[0m
+  [4;35;1mFlexifield Load (0.3ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifield Create (0.2ms)[0m   [0;1mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 13:11:39', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 13:11:39', NULL, NULL)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;35;1mFlexifieldDef Load (0.3ms)[0m   [0mSELECT * FROM "flexifield_defs" LIMIT 1[0m
+  [4;36;1mFlexifield Load (0.8ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifield Update (0.2ms)[0m   [0mUPDATE "flexifields" SET "flexifield_def_id" = 1, "updated_at" = '2009-05-15 13:11:39' WHERE "id" = 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;36;1mFlexifieldDef Load (0.3ms)[0m   [0;1mSELECT * FROM "flexifield_defs" LIMIT 1[0m
+  [4;35;1mFlexifield Load (0.8ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifieldDef Load (0.4ms)[0m   [0;1mSELECT * FROM "flexifield_defs" WHERE ("flexifield_defs"."id" = 1) [0m
+  [4;35;1mFlexifieldDefEntry Load (0.7ms)[0m   [0mSELECT "flexifield_def_entries".* FROM "flexifield_def_entries" WHERE ("flexifield_def_entries".flexifield_def_id = 1) ORDER BY ordering[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "flexifield_def_entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer NOT NULL, "flexifield_name" varchar(255) NOT NULL, "flexifield_alias" varchar(255) NOT NULL, "ordering" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE UNIQUE INDEX "idx_ffonceperspecial" ON "flexifield_def_entries" ("flexifield_def_id", "flexifield_name")[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE INDEX "idx_ordering" ON "flexifield_def_entries" ("ordering")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE TABLE "flexifield_defs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCREATE TABLE "flexifields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer, "flexifield_set_id" integer, "flexifield_set_type" varchar(255), "created_at" datetime, "updated_at" datetime, "ffs_01" varchar(255), "ffs_02" varchar(255), "ffs_03" varchar(255), "ffs_04" varchar(255), "ffs_05" varchar(255), "ffs_06" varchar(255), "ffs_07" varchar(255), "ffs_08" varchar(255), "ffs_09" varchar(255), "ffs_10" varchar(255), "ffs_11" varchar(255), "ffs_12" varchar(255), "ffs_13" varchar(255), "ffs_14" varchar(255), "ffs_15" varchar(255), "ffs_16" varchar(255)) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_def_id" ON "flexifields" ("flexifield_def_id")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE INDEX "index_flexifields_on_flexifield_set_id" ON "flexifields" ("flexifield_set_id")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_set_type" ON "flexifields" ("flexifield_set_type")[0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "published" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 13:11:42', 'title1', 'body1', NULL, '2009-05-15 13:11:42')[0m
+  [4;35;1mFlexifield Load (0.4ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifield Create (0.4ms)[0m   [0;1mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 13:11:42', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 13:11:42', NULL, NULL)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;35;1mFlexifieldDef Load (0.5ms)[0m   [0mSELECT * FROM "flexifield_defs" LIMIT 1[0m
+  [4;36;1mFlexifield Load (1.2ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifield Update (0.2ms)[0m   [0mUPDATE "flexifields" SET "flexifield_def_id" = 1, "updated_at" = '2009-05-15 13:11:42' WHERE "id" = 1[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;36;1mFlexifieldDef Load (0.4ms)[0m   [0;1mSELECT * FROM "flexifield_defs" LIMIT 1[0m
+  [4;35;1mFlexifield Load (1.1ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifieldDef Load (0.5ms)[0m   [0;1mSELECT * FROM "flexifield_defs" WHERE ("flexifield_defs"."id" = 1) [0m
+  [4;35;1mFlexifieldDefEntry Load (1.0ms)[0m   [0mSELECT "flexifield_def_entries".* FROM "flexifield_def_entries" WHERE ("flexifield_def_entries".flexifield_def_id = 1) ORDER BY ordering[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE TABLE "flexifield_def_entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer NOT NULL, "flexifield_name" varchar(255) NOT NULL, "flexifield_alias" varchar(255) NOT NULL, "ordering" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE UNIQUE INDEX "idx_ffonceperspecial" ON "flexifield_def_entries" ("flexifield_def_id", "flexifield_name")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "idx_ordering" ON "flexifield_def_entries" ("ordering")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE TABLE "flexifield_defs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "flexifields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flexifield_def_id" integer, "flexifield_set_id" integer, "flexifield_set_type" varchar(255), "created_at" datetime, "updated_at" datetime, "ffs_01" varchar(255), "ffs_02" varchar(255), "ffs_03" varchar(255), "ffs_04" varchar(255), "ffs_05" varchar(255), "ffs_06" varchar(255), "ffs_07" varchar(255), "ffs_08" varchar(255), "ffs_09" varchar(255), "ffs_10" varchar(255), "ffs_11" varchar(255), "ffs_12" varchar(255), "ffs_13" varchar(255), "ffs_14" varchar(255), "ffs_15" varchar(255), "ffs_16" varchar(255)) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_def_id" ON "flexifields" ("flexifield_def_id")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_flexifields_on_flexifield_set_id" ON "flexifields" ("flexifield_set_id")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_flexifields_on_flexifield_set_type" ON "flexifields" ("flexifield_set_type")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "published" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "published", "created_at") VALUES('2009-05-15 13:11:47', 'title1', 'body1', NULL, '2009-05-15 13:11:47')[0m
+  [4;35;1mFlexifield Load (0.3ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifield Create (0.3ms)[0m   [0;1mINSERT INTO "flexifields" ("ffs_06", "flexifield_set_type", "updated_at", "ffs_07", "flexifield_set_id", "ffs_08", "ffs_09", "ffs_10", "ffs_11", "ffs_01", "ffs_12", "ffs_02", "ffs_13", "ffs_03", "ffs_14", "ffs_04", "ffs_15", "flexifield_def_id", "created_at", "ffs_05", "ffs_16") VALUES(NULL, 'Post', '2009-05-15 13:11:47', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2009-05-15 13:11:47', NULL, NULL)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;35;1mFlexifieldDef Load (0.3ms)[0m   [0mSELECT * FROM "flexifield_defs" LIMIT 1[0m
+  [4;36;1mFlexifield Load (1.0ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifield Update (0.2ms)[0m   [0mUPDATE "flexifields" SET "flexifield_def_id" = 1, "updated_at" = '2009-05-15 13:11:47' WHERE "id" = 1[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;36;1mFlexifieldDef Load (0.3ms)[0m   [0;1mSELECT * FROM "flexifield_defs" LIMIT 1[0m
+  [4;35;1mFlexifield Load (0.9ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 1 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifieldDef Load (0.4ms)[0m   [0;1mSELECT * FROM "flexifield_defs" WHERE ("flexifield_defs"."id" = 1) [0m
+  [4;35;1mFlexifieldDefEntry Load (0.7ms)[0m   [0mSELECT "flexifield_def_entries".* FROM "flexifield_def_entries" WHERE ("flexifield_def_entries".flexifield_def_id = 1) ORDER BY ordering[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;35;1mFlexifield Load (0.8ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 6 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;36;1mFlexifieldDef Load (0.3ms)[0m   [0;1mSELECT * FROM "flexifield_defs" LIMIT 1[0m
+  [4;35;1mFlexifield Load (0.8ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 6 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifield Update (0.5ms)[0m   [0;1mUPDATE "flexifields" SET "flexifield_def_id" = 1, "updated_at" = '2009-05-15 13:12:14' WHERE "id" = 6[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;35;1mFlexifieldDef Load (0.3ms)[0m   [0mSELECT * FROM "flexifield_defs" LIMIT 1[0m
+  [4;36;1mFlexifield Load (0.8ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 6 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifield Update (0.5ms)[0m   [0mUPDATE "flexifields" SET "flexifield_def_id" = 1, "updated_at" = '2009-05-15 13:12:14' WHERE "id" = 6[0m
+  [4;36;1mFlexifieldDef Load (0.4ms)[0m   [0;1mSELECT * FROM "flexifield_defs" WHERE ("flexifield_defs"."id" = 1) [0m
+  [4;35;1mFlexifieldDefEntry Load (0.7ms)[0m   [0mSELECT "flexifield_def_entries".* FROM "flexifield_def_entries" WHERE ("flexifield_def_entries".flexifield_def_id = 1) ORDER BY ordering[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;35;1mFlexifield Load (0.8ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 6 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;36;1mFlexifieldDef Load (0.3ms)[0m   [0;1mSELECT * FROM "flexifield_defs" LIMIT 1[0m
+  [4;35;1mFlexifield Load (0.8ms)[0m   [0mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 6 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;36;1mFlexifield Update (0.5ms)[0m   [0;1mUPDATE "flexifields" SET "flexifield_def_id" = 1, "updated_at" = '2009-05-15 13:12:29' WHERE "id" = 6[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "posts" [0m
+  [4;36;1mPost Load (0.4ms)[0m   [0;1mSELECT * FROM "posts" ORDER BY posts.id DESC LIMIT 1[0m
+  [4;35;1mFlexifieldDef Load (0.3ms)[0m   [0mSELECT * FROM "flexifield_defs" LIMIT 1[0m
+  [4;36;1mFlexifield Load (0.8ms)[0m   [0;1mSELECT * FROM "flexifields" WHERE ("flexifields".flexifield_set_id = 6 AND "flexifields".flexifield_set_type = 'Post') LIMIT 1[0m
+  [4;35;1mFlexifield Update (0.5ms)[0m   [0mUPDATE "flexifields" SET "flexifield_def_id" = 1, "updated_at" = '2009-05-15 13:12:29' WHERE "id" = 6[0m
+  [4;36;1mFlexifieldDef Load (0.4ms)[0m   [0;1mSELECT * FROM "flexifield_defs" WHERE ("flexifield_defs"."id" = 1) [0m
+  [4;35;1mFlexifieldDefEntry Load (0.7ms)[0m   [0mSELECT "flexifield_def_entries".* FROM "flexifield_def_entries" WHERE ("flexifield_def_entries".flexifield_def_id = 1) ORDER BY ordering[0m
