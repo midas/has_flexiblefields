@@ -32,8 +32,46 @@ module Has #:nodoc:
         include InstanceMethods
 
       end
+      
       def includes_flexiblefields?
         self.included_modules.include?(InstanceMethods)
+      end
+
+      def create_ff_tables!
+        self.connection.create_table :flexifields do |t|
+          t.integer :flexifield_def_id
+          t.integer :flexifield_set_id
+          t.string  :flexifield_set_type
+          t.timestamps
+          1.upto(16) {|i| t.string "ffs_" + (i < 10 ? "0#{i}" : "#{i}")}
+          
+        end
+        
+        self.connection.create_table :flexifield_defs do |t|
+          t.string      :name, :null => false
+          t.timestamps
+        end
+
+        self.connection.create_table :flexifield_def_entries do |t|
+          t.integer     :flexifield_def_id, :null => false
+          t.string      :flexifield_name, :null => false
+          t.string      :flexifield_alias, :null => false
+          t.integer     :ordering
+          t.timestamps
+        end
+
+        self.connection.add_index :flexifields, [:flexifield_set_id, :flexifield_set_type], :name => 'idx_ff_poly'
+        self.connection.add_index :flexifields, :flexifield_def_id
+
+        self.connection.add_index :flexifield_def_entries, [:flexifield_def_id, :ordering], :name => 'idx_ffde_ordering'
+        self.connection.add_index :flexifield_def_entries, [:flexifield_def_id, :flexifield_name], :name => 'idx_ffde_onceperdef', :unique => true
+
+      end
+      
+      def drop_ff_tables!
+        self.connection.drop_table :flexifield_def_entries
+        self.connection.drop_table :flexifield_def
+        self.connection.drop_table :flexifields
       end
     end
     

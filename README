@@ -14,8 +14,33 @@ I had a look at has_magic_columns but the field labels/aliases need to be define
 Features:
 Extends ActiveRecord
 Uses a has_one association to a flexifields model
-The flexifields model is polymorphic, one table to hold all has_one records for any model extentended by this plugin
+The flexifields model is polymorphic, one table to hold all has_one records for any model extended by this plugin
 Uses delegation to make some methods appear in the extended model.
+
+To create the flexifield tables put this in your migration for the extended model (only for the first one)
+e.g. if Article is the model you are extending
+class CreateArticles < ActiveRecord::Migration
+  def self.up
+    create_table :articles, :force => true do |t|
+      t.string :title
+      t.text :body
+      t.boolean :published
+      t.timestamps
+    end
+
+    Article.create_ff_tables!
+  end
+
+  def self.down
+    Article.drop_ff_tables!
+    drop_table :articles
+  end
+end
+NOTE: remember the polymorphic nature of the flexifield model, only drop the ff tables if you are dropping the last of the extended models
+
+
+TODO:
+partials for flexifield definitions forms
 
 
 NOTE: currently this version requires rails v 2.3.2
