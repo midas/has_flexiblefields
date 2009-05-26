@@ -1,0 +1,19 @@
+<%
+# I hope that you are using a Object Oriented CSS
+# and if you are...
+%>
+
+<h6>Listing Flexifield Definitions</h6>
+<p class="shoveR8px">
+<%= link_to 'New  Flexifield Definition', new_flexifield_def_path %>
+</p>
+<div class="line">
+  <div class="lastUnit shoveR8px">Name</div>
+</div>
+
+<% @flexifield_defs.each do |fd| %>
+<%= render :partial => 'show_one_def', :locals => {:fd => fd} %>
+<% end %>
+
+
+

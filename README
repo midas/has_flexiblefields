@@ -1,6 +1,10 @@
 HasFlexibleFields
 =================
 
+Added: Forms for Flexifield Definition management.  Uses nested forms.
+Added: Wrapped Columns for Flexifield Definition Entry, wraps ActiveRecord::ConnectionAdapters::<Adapter>Column in a
+Struct to provide a content attribute and two convenience methods to use in view or form creation
+
 The problem:
 
 How does one add fields to a model (usually another project's models) without permanently altering the model structure?
@@ -40,8 +44,8 @@ NOTE: remember the polymorphic nature of the flexifield model, only drop the ff 
 
 
 TODO:
-partials for flexifield definitions forms
-
+DONE: partials for flexifield definitions forms
+DONE: partials for flexifield data entry
 
 NOTE: currently this version requires rails v 2.3.2
 
@@ -62,26 +66,30 @@ and flexifield_def_entries of:
   ffd1e1:
     flexifield_def_id: 1
     flexifield_name: ffs_01
-    flexifield_alias: preparation time
-    ordering: 1
+    flexifield_alias: preparation_time
+    flexifield_tooltip: Enter time in decimal hours or minutes
+    flexifield_order: 1
 
   ffd1e2:
     flexifield_def_id: 1
     flexifield_name: ffs_02
-    flexifield_alias: cooking time
-    ordering: 2
+    flexifield_alias: cooking_time
+    flexifield_tooltip: Enter time in H hours M minutes
+    flexifield_order: 2
 
 Then this saves the additional content with the main content...
   r = Content.create! :title => 'Roast Pork Belly', :body => 'Ingredients: ...'
-  r.assign_ff_def 1
-  r.assign_ff_value 'preparation time', '25 minutes'
-  r.assign_ff_value 'cooking time', '2 hours 30 minutes'
+  r.ff_def= 1
+  r.set_ff_value 'preparation_time', '25 minutes'
+  r.set_ff_value 'cooking_time', '2 hours 30 minutes'
+  r.assign_ff_values {:preparation_time =>  '25 minutes', :cooking_time => '2 hours 30 minutes'}
+  r.get_ff_value(:preparation_time) # -> '25 minutes'
 and
-  r.ff_aliases # -> ["preparation time","cooking time"]
+  r.ff_aliases # -> ["preparation_time","cooking_time"]
   r.ff_fields  # -> ["ffs_01","ffs_02"]
 and
   r.to_ff_alias 'ffs_01'       # -> "preparation time"
-  r.to_ff_field 'cooking time' # -> "ffs_02"
+  r.to_ff_field 'cooking_time' # -> "ffs_02"
 
 But forms that save to ffs_NN directly will also work.
 

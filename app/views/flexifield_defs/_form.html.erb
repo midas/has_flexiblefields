@@ -1,0 +1,30 @@
+<% form_for(setup_flexifield_def(@flexifield_def)) do |def_form| %>
+  <%= def_form.error_messages %>
+  <fieldset class="parent_tag rounded">
+    <legend class="rounded">Flexifield Definition</legend>
+    <ul>
+      <li>
+        <%= def_form.label :name, 'Flexifield Def Name' %>
+        <%= def_form.text_field :name %>
+      </li>
+      <li>
+        <% def_form.fields_for :flexifield_def_entries do |entry_form| %>
+          <fieldset class="child_tag rounded">
+            <legend class="rounded"><%= entry_form.object.new_record? ? 'New Flexifield Definition Entry' : 'Flexifield Definition Entries' %></legend>
+            <ul>
+            <% FlexifieldDefEntry.wrap_form_columns(entry_form).each do |ffield| %>
+              <li>
+                <%= entry_form.label ffield.field, ffield.viewname %>
+                <%= ffield.content  %>
+              </li>
+            <% end %>
+            </ul>
+          </fieldset>
+        <% end %>
+      </li>
+    </ul>
+    <div>
+      <%= def_form.submit 'Submit' %>
+    </div>
+  </fieldset>
+<% end %>

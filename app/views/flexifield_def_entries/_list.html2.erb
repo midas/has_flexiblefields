@@ -1,0 +1,33 @@
+
+<%
+names = FlexifieldDefEntry.viewable_column_names
+%>
+    <table>
+      <tr>
+      <% names.each do |name| %>
+        <th><%= FlexifieldDefEntry.to_displayname(name) %></th>
+      <% end %>
+      </tr>
+      <tbody>
+        <% fdes.each do |fde| %>
+        <tr>
+          <% names.each do |name| %>
+          <td>
+            <%= h fde.send(name) %>
+          </td>
+          <% end %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    
+    <% if fdelist %>
+      <hr/>
+      <div class="line">
+        <div class="lastUnit shoveR4px">
+          <%= link_to 'New  Flexifield Definition Entry', new_flexifield_def_flexifield_def_entry_path(fd) %>
+        </div>
+      </div>
+    <% end %>
+
+

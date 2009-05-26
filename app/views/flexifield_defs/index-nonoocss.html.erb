@@ -1,0 +1,29 @@
+<%
+# I hope that you are using a Object Oriented CSS
+# and if you are not...
+%>
+
+<h1>Listing Flexifield Definitions</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+<% @flexifield_defs.each do |fd| %>
+  <tr>
+    <td><%=h fd.name %></td>
+    <td><%= link_to 'Show', post %></td>
+    <td><%= link_to 'Edit', edit_flexifield_def_path(fd) %></td>
+    <td><%= link_to 'Destroy', fd, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New  Flexifield Defs', new_flexifield_def_path %>
+
+<%
+#but if you are...
+%>

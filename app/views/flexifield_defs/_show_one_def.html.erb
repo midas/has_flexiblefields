@@ -1,0 +1,13 @@
+<div class="parent_tag rounded">
+    <div class="line">
+      <div class="unit strong size1of5 shoveR8px"><%=h fd.name %></div>
+      <div class="lastUnit size4of5 shoveR8px child_tag rounded">
+        <%= render :partial => 'flexifield_def_entries/list', :locals => {:fdelist => false, :fdes => fd.flexifield_def_entries, :fd => fd} %>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit shoveR8px">
+        <%= link_to 'Edit', edit_flexifield_def_path(fd) %>|<%= link_to 'Destroy', fd, :confirm => 'Are you sure?', :method => :delete %>
+      </div>
+    </div>
+</div>

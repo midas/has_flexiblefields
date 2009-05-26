@@ -1,0 +1,38 @@
+
+<%
+fields = FlexifieldDefEntry.wrap_viewable_columns("unit","lastUnit")
+fdescss_size = "size1of" + (fdelist ? fields.size.succ.to_s : fields.size.to_s)
+%>
+
+    <div class="line">
+    <% if fdelist %>
+      <div class="unit <%= fdescss_size %> shoveR4px"></div>
+    <% end %>
+    <% fields.each do |ffield| %>
+      <div class="<%= ffield.content + " " + fdescss_size %> shoveR4px"><%= ffield.viewname %></div>
+    <% end %>
+    </div>
+    <hr/>
+    <% fdes.each do |fde| %>
+      <div class="line strong afterLine0-25em">
+      <% if fdelist %>
+        <div class="unit <%= fdescss_size %> shoveR4px">
+        <%= link_to 'Edit', edit_flexifield_def_flexifield_def_entry_path(fde.flexifield_def, fde) %>|
+        <%= link_to 'Destroy', [fde.flexifield_def, fde], :confirm => 'Are you sure?', :method => :delete %>
+        </div>
+      <% end %>
+      <% fields.each do |ffield| %>
+        <div class="<%= ffield.content + " " + fdescss_size %> shoveR4px"><%=h fde.send(ffield.field) || ".." %></div>
+      <% end %>
+      </div>
+    <% end %>
+    <% if fdelist %>
+      <hr/>
+      <div class="line">
+        <div class="lastUnit shoveR4px">
+          <%= link_to 'New  Flexifield Definition Entry', new_flexifield_def_flexifield_def_entry_path(fd) %>
+        </div>
+      </div>
+    <% end %>
+
+
